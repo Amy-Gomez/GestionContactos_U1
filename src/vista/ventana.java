@@ -68,7 +68,7 @@ public class ventana extends JFrame {
 		setTitle("GESTION DE CONTACTOS"); // Establece el título de la ventana.
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Define el comportamiento al cerrar la ventana.
 		setResizable(false); // Evita que la ventana sea redimensionable.
-		setBounds(140, 10, 1026, 750); // Establece el tamaño y la posición inicial de la ventana.
+		setBounds(140, 10, 1026, 650); // Establece el tamaño y la posición inicial de la ventana.
 		contentPane = new JPanel(); // Crea un nuevo panel de contenido.
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5)); // Establece un borde vacío alrededor del panel.
 
@@ -110,7 +110,7 @@ public class ventana extends JFrame {
 		
 		JLabel lbl_etiqueta4 = new JLabel("BUSCAR POR NOMBRE:");
 		lbl_etiqueta4.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lbl_etiqueta4.setBounds(25, 613, 192, 13);
+		lbl_etiqueta4.setBounds(25, 541, 192, 13);
 		panelContactos.add(lbl_etiqueta4);
 		
 		// Creación y configuración de campos de texto para ingresar nombres, teléfonos y correos electrónicos.
@@ -135,7 +135,7 @@ public class ventana extends JFrame {
 		txt_buscar = new JTextField();
 		txt_buscar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		txt_buscar.setColumns(10);
-		txt_buscar.setBounds(212, 604, 784, 31);
+		txt_buscar.setBounds(212, 532, 784, 31);
 		panelContactos.add(txt_buscar);
 		
 		// Creación y configuración de una casilla de verificación para indicar si un contacto es favorito.
@@ -189,11 +189,11 @@ public class ventana extends JFrame {
 		lst_contactos.setBounds(25, 242, 971, 398); // Establece la posición y el tamaño de la JList en el panel.
 
 		scrLista = new JScrollPane(tbl_contactos); // Crea un JScrollPane para permitir el desplazamiento de la JList.
-		scrLista.setBounds(25, 210, 971, 370); // Establece la posición y el tamaño del JScrollPane en el panel.
+		scrLista.setBounds(25, 210, 971, 290); // Establece la posición y el tamaño del JScrollPane en el panel.
 		panelContactos.add(scrLista); // Agrega el JScrollPane al panel de contenido.
 
 		progressBar = new JProgressBar();
-		progressBar.setBounds(25, 583, 160, 18);
+		progressBar.setBounds(25, 511, 160, 18);
 		progressBar.setStringPainted(true);
 		panelContactos.add(progressBar);
 
