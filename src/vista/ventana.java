@@ -21,6 +21,7 @@ import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.JTable;
 import javax.swing.JProgressBar;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 public class ventana extends JFrame {
@@ -110,7 +111,7 @@ public class ventana extends JFrame {
 		
 		JLabel lbl_etiqueta4 = new JLabel("BUSCAR POR NOMBRE:");
 		lbl_etiqueta4.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lbl_etiqueta4.setBounds(25, 541, 192, 13);
+		lbl_etiqueta4.setBounds(10, 544, 192, 13);
 		panelContactos.add(lbl_etiqueta4);
 		
 		// Creación y configuración de campos de texto para ingresar nombres, teléfonos y correos electrónicos.
@@ -135,7 +136,7 @@ public class ventana extends JFrame {
 		txt_buscar = new JTextField();
 		txt_buscar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		txt_buscar.setColumns(10);
-		txt_buscar.setBounds(212, 532, 784, 31);
+		txt_buscar.setBounds(212, 535, 784, 31);
 		panelContactos.add(txt_buscar);
 		
 		// Creación y configuración de una casilla de verificación para indicar si un contacto es favorito.
@@ -183,17 +184,28 @@ public class ventana extends JFrame {
 		tbl_contactos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION); // Establece el modo de selección a un solo elemento.
 		tbl_contactos.setAutoCreateRowSorter(true);
 
+		// Centra el texto en todas las columnas de la tabla
+		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+		centerRenderer.setHorizontalAlignment(JLabel.CENTER);
+		for (int i = 0; i < columnas.length; i++) {
+		    tbl_contactos.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
+		}
+
+		// Centra también el texto de los encabezados de columna
+		((DefaultTableCellRenderer) tbl_contactos.getTableHeader().getDefaultRenderer())
+		    .setHorizontalAlignment(JLabel.CENTER);
+
 		lst_contactos = new JList(); // Crea una nueva JList para mostrar la lista de contactos.
 		lst_contactos.setFont(new Font("Tahoma", Font.PLAIN, 15)); // Configura la fuente de la JList.
 		lst_contactos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION); // Establece el modo de selección a un solo elemento.
 		lst_contactos.setBounds(25, 242, 971, 398); // Establece la posición y el tamaño de la JList en el panel.
 
 		scrLista = new JScrollPane(tbl_contactos); // Crea un JScrollPane para permitir el desplazamiento de la JList.
-		scrLista.setBounds(25, 210, 971, 290); // Establece la posición y el tamaño del JScrollPane en el panel.
+		scrLista.setBounds(25, 210, 971, 294); // Establece la posición y el tamaño del JScrollPane en el panel.
 		panelContactos.add(scrLista); // Agrega el JScrollPane al panel de contenido.
 
 		progressBar = new JProgressBar();
-		progressBar.setBounds(25, 511, 160, 18);
+		progressBar.setBounds(25, 515, 160, 18);
 		progressBar.setStringPainted(true);
 		panelContactos.add(progressBar);
 
