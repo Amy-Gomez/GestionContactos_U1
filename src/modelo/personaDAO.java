@@ -111,9 +111,19 @@ public class personaDAO {
 		// Recorre los elementos de la lista
 		for (persona p : personas) {
 			// Instancia el DAO
-			new personaDAO(p);
+			personaDAO dao = new personaDAO(p);
 			// Escribe en el archivo
-			escribirArchivo();
+			dao.escribirArchivo();
 		}
+	}
+
+	public void exportarCSV(String rutaDestino) throws IOException {
+		List<persona> personas = leerArchivo();
+		FileWriter fw = new FileWriter(rutaDestino);
+		fw.write("NOMBRE;TELEFONO;EMAIL;CATEGORIA;FAVORITO\n");
+		for (int i = 1; i < personas.size(); i++) {
+			fw.write(personas.get(i).datosContacto() + "\n");
+		}
+		fw.close();
 	}
 }
